@@ -58,7 +58,7 @@ export class Unit extends Component {
     };
     // insert topic in collection from here 1 * 1
 
-    const msg = `new course unit named ${unitName} has been added with ${count} topics`;
+    const msg = `new Subject named ${unitName} has been added with ${count} units`;
     Meteor.call(
       'unit.insert',
       unitId,
@@ -93,7 +93,7 @@ export class Unit extends Component {
                       unitName: '',
                     }),
                     M.toast({
-                      html: `<span>Added ${unitName} successfully and ${count} topics</span>`,
+                      html: `<span>Added ${unitName} successfully and ${count} Unit</span>`,
                     }));
                 },
               );
@@ -220,7 +220,7 @@ export class Unit extends Component {
                           <input
                             type="text"
                             id={index}
-                            placeholder={'Add Topic'}
+                            placeholder={'Add Units'}
                             value={topic.name}
                             onChange={this.handleTopicChange(index)}
                             className={`${index}`}

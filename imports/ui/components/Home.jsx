@@ -29,7 +29,7 @@ export class Home extends Component {
     if (!courses) {
       return <span> No Courses </span>;
     } else if (courses.length === 0) {
-      return <p className="center"> There are no contents yet </p>;
+      return <p className="center"> There are no contents yet for the selected language</p>;
     }
     return courses.map(cours => <Courses key={index++} course={cours} />);
   }
@@ -41,7 +41,7 @@ export class Home extends Component {
         <ThemeContext.Consumer>
           {({ state }) => (
             <Fragment>
-              <ImgSlider isDark={state.isDark} />
+              <ImgSlider  />
               <div className="container ">
                 <div className="row ">
                   <div className="input-field col s12">
@@ -52,8 +52,9 @@ export class Home extends Component {
                         Choose your Language
                       </option>
                       <option value="english">English</option>
-                      <option value="french">French</option>
-                      <option value="ethiopian">Ethiopian</option>
+                      <option value="amharic">Amharic</option>
+                      <option value="french">Oromifa</option>
+                    
                     </select>
                     <label>Language Options</label>
                   </div>
@@ -87,7 +88,7 @@ export default withTracker(() => {
     unit: _Units.find().fetch(),
     courses: _Courses
       .find(
-        { 'details.language': Session.get('language') },
+        { 'details.language': Session.get('language') }, {sort:{name:1}},
         {
           fields: {
             name: 1,

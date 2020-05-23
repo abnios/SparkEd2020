@@ -134,10 +134,10 @@ export class ManageUnits extends Component {
       case 'del':
         const unit = getCheckBoxValues('chk');
         const count = unit.length;
-        const _name = count > 1 ? 'units' : 'unit';
+        const _name = count > 1 ? 'Subjects' : 'Subject';
         if (count < 1) {
           M.toast({
-            html: '<span>Please check atleast one unit</span>',
+            html: '<span>Please check atleast one subject</span>',
             classes: 'red',
           });
           return;
@@ -335,6 +335,7 @@ export class ManageUnits extends Component {
             {this.getUnits()}
 
             {this.state.modalType === 'upload' ? (
+              
               <UploadWrapper
                 show={isOpen}
                 close={this.closeModal}
@@ -394,14 +395,14 @@ export class ManageUnits extends Component {
               <div className="row">
                 <div className="">
                   <h4>
-                    {`${Session.get('sub_unit_title')} for ${courseName}`}{' '}
+                     {"    "}      {`     ${Session.get('sub_unit_title')} for ${courseName}`}{' '}
                   </h4>
                 </div>
                 <div className="col m8 ">
                   <SearchField
                     action={'/dashboard/Units/'}
                     name={'units'}
-                    placeholder={'search unit by name'}
+                    placeholder={'     search subject by name'}
                     query={'q'}
                   />
                 </div>
@@ -430,8 +431,8 @@ export class ManageUnits extends Component {
                 <div className="col m2">
                   <a href={`/dashboard/unit/${courseId}?y=${language}`}>
                     <button className="btn grey ">
-                      {' Add Unit '}
-                      <T>common.actions.new</T>
+                    <T>common.actions.add</T>{ ' '} <T>common.manage.unit</T>
+                      { ' Subject'}
                     </button>
                   </a>
                 </div>
@@ -455,7 +456,7 @@ export class ManageUnits extends Component {
                       <T>common.actions.createdAt</T>
                     </th>
                     <th>{`Edit ${newSubTitle}`}</th>
-                    <th>{`Manage sub-${newSubTitle}`}</th>
+                    <th>{`Manage ${newSubTitle}`}</th>
                     <th onClick={handleCheckAll.bind(this, 'chk-all', 'chk')}>
                       <label>
                         <input type="checkbox" className=" chk-all" readOnly />

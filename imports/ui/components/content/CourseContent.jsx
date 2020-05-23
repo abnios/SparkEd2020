@@ -25,7 +25,7 @@ export class CourseContent extends Component {
     if (!unitd) {
       return null;
     } else if (unitd.length < 1) {
-      return `No units for ${name} has been added yet,Please Check again soon!!`;
+      return `No subject for ${name} has been added yet,Please Check again soon!!`;
     }
 
     return unitd.map(unit => <Unit key={index++} unit={unit} />);
@@ -55,7 +55,7 @@ export class CourseContent extends Component {
           <div style={{ marginTop: 20 }}>
             <SearchField
               action={'/results'}
-              placeholder={'Search for Units and Resources'}
+              placeholder={'Search for subjects, Units and Resources'}
               query={'q'}
             />
           </div>

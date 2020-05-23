@@ -1,8 +1,9 @@
 {
-  "name": "SparkEd ",
-  "tag": "The Institution above",
-  "isUserAuth": false,
+  "name": "Addis Abeba",
+  "tag": "nbjbjgjhjk ",
+  "isUserAuth": true,
   "isHighSchool": false,
   "isConfigured": true,
-  "server": "http://localhost:3000/setup"
+  "server": "http://197.156.96.188",
+  "isReference": true
 }

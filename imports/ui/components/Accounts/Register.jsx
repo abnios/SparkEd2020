@@ -17,6 +17,8 @@ export default class Register extends Component {
     const name = e.target.full_name.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
+    const phone = e.target.phone.value;
+    const grade = e.target.grade.value;
     const passwordConfirm = e.target.passwordConfirm.value;
     const gender = e.target.gender.value;
     const pwdResults = checkPassword(password, passwordConfirm);
@@ -35,6 +37,8 @@ export default class Register extends Component {
       }
       const profile = {
         gender,
+        grade,
+        phone,
         name,
         status: 0,
         stats: 1,
@@ -111,6 +115,35 @@ export default class Register extends Component {
                       name="email"
                     />
                     <label htmlFor="email">Email</label>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="input-field col s12">
+                    <input
+                      id="phone"
+                      type="text"
+                      className="validate"
+                       
+                      name="phone"
+                    />
+                    <label htmlFor="phone">Mobile No.</label>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="input-field col s12">
+                  {/* <label for="grade">Who you are:</label> */}
+
+                    <select id="grade">
+                      <option value="grade_7">Grade 7 Student</option>
+                      <option value="grade_8">Grade 8 Student</option>
+                      <option value="grade_9">Grade 9 Student</option>
+                      <option value="grade_10">Grade 10 Student</option>
+                      <option value="grade_11">Grade 11 Student</option>
+                      <option value="grade_12">Grade 12 Student</option>
+                      <option value="teacher">School Teacher</option>
+                      <option value="principal">Principal</option>
+                      <option value="other">Other</option>
+                    </select>
                   </div>
                 </div>
                 <div className="row">

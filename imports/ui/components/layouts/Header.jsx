@@ -15,6 +15,7 @@ import UserInfo from './UserInfo';
 import ExternalLinksView from '../ExternalLink/ExternalLinksView';
 import InstitutionDetail from './InstitutionDetail';
 import { T } from '../Language/Languages';
+import * as config from '../../../../config.json';
 import { ThemeContext } from '../../containers/AppWrapper';
 
 export class Header extends Component {
@@ -237,6 +238,7 @@ export class Header extends Component {
   render() {
     const { isOpen, title, confirm, reject, modalType } = this.state;
     const { externallinks, institution, details } = this.props;
+    const referencemenu = config.isReference;
     return (
       <ThemeContext.Consumer>
         {({ state, toggle }) => (
@@ -251,10 +253,10 @@ export class Header extends Component {
                   />
                 </div>
                 <div className="m6 offset-m6">
-                <div className="col s12 m2 hide-on-small-only">
+                <div className="col s12 m2 hide-on-small-only" >
                   <SearchView
                     action={'/results'}
-                    placeholder={'Search'}
+                    placeholder={'Search Here'}
                     query={'q'}
                     sClass={'searchAnim'}
                   />
@@ -262,12 +264,14 @@ export class Header extends Component {
                 <div className="row ">
                   {
                     Meteor.userId() && <div className="col s2 m1 head-icons ">{this.countNotifications()}</div>
-                  }
+                                    }
 
-
-                  <div className="col s2 m1 head-icons ">
-                    <a href="/reference" className="fa fa-book fa-2x inst-link" />
-                  </div>
+                  { config.isReference ? <span> 
+                    <div className="col s2 m1 head-icons ">
+                                      <a href="/reference" className="fa fa-book fa-2x inst-link" />
+                                    </div> 
+</span>: <span></span>}
+              
 
                   <div className="col s2 m1 head-icons hide-on-med-and-up">
                     <a
@@ -301,7 +305,7 @@ export class Header extends Component {
                     {/* <li className="collection-header">
                     </li> */}
                     <h6 className='center'>External links</h6>
-                    <ul className='collection'>
+                    <ul className='collection' style={{maxHeight: 400, overflow: 'auto'}}>
                       <ExternalLinksView externallinks={externallinks} />
                     </ul>
                   </div>

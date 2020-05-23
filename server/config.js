@@ -7,12 +7,14 @@ import * as config from '../config.json';
 const path = `${process.env.PWD}/config.json`;
 
 Meteor.methods({
-  addConfig: (name, tag, auth, isHighSchool, server) => {
+  addConfig: (name, tag, auth, isHighSchool, server, isReference) => {
+    console.log(name+tag+server+isHighSchool+isReference)
     check(name, String);
     check(tag, String);
     check(auth, Boolean);
     check(server, String);
     check(isHighSchool, Match.OneOf(Boolean, null));
+    check(isReference, Boolean);
     // check(set, Boolean);
 
     const isSet = config.isConfigured;
@@ -25,6 +27,7 @@ Meteor.methods({
         isHighSchool: config.isHighSchool,
         isConfigured: true,
         server,
+        isReference: isReference
       };
     } else {
       newConfig = {
@@ -34,6 +37,7 @@ Meteor.methods({
         isHighSchool,
         isConfigured: true,
         server,
+        isReference: isReference
       };
     }
 
@@ -53,11 +57,11 @@ Meteor.methods({
         }
         // Create a config from here
         if (isHighSchool) {
-          title = 'Subjects';
-          subTitle = 'Units';
+          title = 'Grades';
+          subTitle = 'Subjects';
         } else {
-          title = 'Courses';
-          subTitle = 'Units';
+          title = 'Grades'; // for title = 'Courses'; // for 
+          subTitle = 'Subject';
         }
         Meteor.call('insert.title', title, subTitle, error => {
           error ? console.err(error.reason) : console.log('Saved titles');

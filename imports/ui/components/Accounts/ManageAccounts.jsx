@@ -377,6 +377,12 @@ export class ManageAccounts extends React.Component {
                 </th>
                 {isUserAuth ? <th>Status</th> : null}
                 <th>
+                  <T>common.accounts.Useris</T>
+                </th>
+                <th>
+                  <T>common.accounts.Phone</T>
+                </th>
+                <th>
                   <T>common.actions.edit</T>
                 </th>
                 <th onClick={handleCheckAll.bind(this, 'chk-all', 'chk')}>
@@ -408,11 +414,14 @@ export class ManageAccounts extends React.Component {
                     <td>{!user.roles ? 'student' : user.roles}</td>
                     <td>{email}</td>
                     <td>{user.profile.gender}</td>
+           
                     {isUserAuth ? (
                       <td>
                         <i className={`fa-2x fa ${statusIcon}`} />
                       </td>
                     ) : null}
+                             <td>{user.profile.grade}</td>
+                    <td>{user.profile.phone}</td>
                     <td>
                       <a
                         href=""

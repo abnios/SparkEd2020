@@ -405,9 +405,10 @@ nav ul a:hover {
     } */
 #search {
   /* background-color: #00bcd4; */
+  background-color: #2c7f8a;
   padding-left: 8px;
-  border: none;
-  border-radius: 4px;
+  border: 1;
+  border-radius: 12px;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;

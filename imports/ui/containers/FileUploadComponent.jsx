@@ -63,8 +63,10 @@ export class FileUploadComponent extends Component {
             );
             break;
           case 'ManageUnits':
-            const courseId = FlowRouter.getQueryParam('cs');
+            
+            const courseId = FlowRouter.getQueryParam('cs') || Session.get('courseIde') ;
             const programId = FlowRouter.getParam('_id') || 'pId';
+            console.log(programId + " -- " + Session.get('courseIde'));
             uploadInstance = References.insert(
               {
                 file,
@@ -83,6 +85,9 @@ export class FileUploadComponent extends Component {
             );
             break;
           case 'Additional':
+            // console.log('additional file to be loaded');
+            const courseIdr = Session.get('courseIde') ;
+            const programIdr = FlowRouter.getParam('_id') || 'pId';
             uploadInstance = References.insert(
               {
                 file,
@@ -90,8 +95,8 @@ export class FileUploadComponent extends Component {
                   locator: this.props.fileLocator,
                   userId: Meteor.userId(), // Optional, used to check on server for file tampering
                   topicId: null,
-                  programId: null,
-                  courseId: null,
+                  programId: prgramId,
+                  courseId: courseId,
                   createdAt: new Date(),
                 },
                 streams: 'dynamic',

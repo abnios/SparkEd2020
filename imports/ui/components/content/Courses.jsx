@@ -38,7 +38,7 @@ export class Courses extends Component {
                 backgroundColor: state.isDark ? state.mainDark : state.main,
               }}
             >
-              <div className="card-content">
+              <div className="card-content"  onClick={Courses.redirectToUnits.bind(this, _id)}>
                 <span className={'card-title '}>
                   <h5>
                     <a

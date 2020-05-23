@@ -29,6 +29,8 @@ Meteor.methods({
       v.name = `${mUser.profile.name}`;
       v.email = mUser.emails[0].address;
       v.gender = mUser.profile.gender;
+      v.grade = mUser.profile.grade;
+      v.phone = mUser.profile.phone;
     });
 
     const heading = true; // Optional, defaults to true

@@ -10,6 +10,8 @@ Meteor.users.deny({
 const UserProfile = new SimpleSchema({
   name: String,
   gender: String,
+  phone: String,
+  grade: String,
   status: Number,
   stats: Number,
 });

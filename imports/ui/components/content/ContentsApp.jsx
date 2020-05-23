@@ -98,9 +98,9 @@ export class ContentsApp extends Component {
           <Fragment>
             <div className="row">
               <div className=" unit-container" style={{ backgroundColor: color.isDark ? color.mainDark : color.main }}>
-                <h4 className="center unit-name">{unitName}</h4>
+                <h4 className="center unit-name" style={{ color:'black' }}>{unitName}</h4>
                 <div className="container">
-                  <p className="center">{desc}</p>
+                  <p className="center" style={{ color:'black' }}>{desc}</p>
                 </div>
               </div>
             </div>
@@ -110,7 +110,7 @@ export class ContentsApp extends Component {
               >
                 <div className="sideNavHeadingUnderline">
                   <a
-                    title="Go back to Topics"
+                    title="Go back to Units"
                     id="backButtonLink"
                     href={''}
                     onClick={e => this.getBack(e)}

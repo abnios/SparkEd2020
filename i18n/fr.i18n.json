@@ -2,43 +2,43 @@
   "_locale": "fr-FR",
   "_namespace": "common",
   "language": {
-    "enUS": "Anglais - U.S.",
-    "esES": "Espagnol - SP",
-    "frFr": "Francais - FR",
+    "enUS": "English - U.S.",
+    "esES": " Amharic ",
+    "frFr": " Oromifa",
     "Language": "Language"
   },
 
   "header": {
-    "openExternalLink": "Click here to Open all the external links in a page",
-    "externalLink": "External Links"
+    "openExternalLink": "የውጪ ተስፈንጣሪዎችን በገጽ ለመክፈት ይህንን ይጫኑ",
+    "externalLink": "የውቺ ተስፈንጣሪዎች"
   },
-  "notFound": "ውይይይ፣ የከፈቱት ገጽ አልተገኘም።",
+  "notFound": "ውይ፣ የከፈቱት ገጽ አልተገኘም።",
   "titles": {
-    "addreference": "Add Reference",
+    "addreference": "አባሪ ያስገቡ",
     "referenceDisplaced": "References displayed",
-    "feedback": "Feedback",
-    "source": "Source",
-    "usersfeedback": "Users Feedback",
+    "feedback": "ግብረ መልስ",
+    "source": "ምንጭ",
+    "usersfeedback": "የተጠቃሚዎች ግብረ መልስ",
     "notifications": "Notifications",
     "bookmarks": "Bookmarks"
   },
   "accounts": {
-    "userName": "Nom",
-    "Register": "Enregistre-moi",
-    "Login": "Se Connecter",
-    "Logout": "Deconnection",
-    "Password": "Mot de Passe",
-    "Email": "Addresse Email",
-    "Gender": "Gender",
-    "dashboard": "Dashboard",
+    "userName": "የተጠቃሚ ስም",
+    "Register": "ተመዝገብ",
+    "Login": "ይግቡ",
+    "Logout": "ይውጡ",
+    "Password": "የይለፍ ቃል",
+    "Email": "የኢሜይል አድራሻ",
+    "Gender": "ፆታ",
+    "dashboard": "ዳሽቦርድ",
     "notlogedIn": "You are not Logged in"
   },
   "manage": {
     "Under": "የሚገኘው",
     "accounts": "compte",
-    "courses": "coursos",
+    "courses": "የትምሕርት ዓይነት",
     "unit": "unito",
-    "topics": "topicos",
+    "topics": "ምዕራፍ",
     "resources": "Resourcos",
     "manage": "አስተዳድር"
   },

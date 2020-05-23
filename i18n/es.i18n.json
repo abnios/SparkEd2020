@@ -2,10 +2,10 @@
   "_locale": "es-ES",
   "_namespace": "common",
   "language": {
-    "enUS": "Englos - U.S.",
-    "esES": "Spañol - SP",
-    "frFr": "frances - FR",
-    "Language": "Idioma"
+    "enUS": "English - U.S.",
+    "esES": " Amharic ",
+    "frFr": " Oromifa",
+    "Language": "Language"
   },
   "notFound": "ምንም አልተገኝም",
   "titles": {
@@ -27,7 +27,10 @@
     "name": "name",
     "Role": "Role",
     "Email": "Email",
-    "Gender": "Gender"
+    
+    "Gender": "ፆታ",
+    "dashboard": "ዳሽቦርድ",
+    "notlogedIn": "You are not Logged in"
   },
   "manage": {
     "Under": "Under",
@@ -57,7 +60,7 @@
     "warn": ""
   },
   "sidenav": {
-    "dashboard": "Dashboard",
+    "dashboard": "ዳሽቦርድ",
     "accounts": "Accounts",
     "courses": "Grades",
     "alltopics": "All Unitos",

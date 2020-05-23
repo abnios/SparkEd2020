@@ -24,6 +24,7 @@ const ResourceRender = (props) => {
     resource.ext === 'image' ||
     resource.ext === 'jpeg' ||
     resource.ext === 'jpg' ||
+    resource.ext === 'gif' ||
     resource.ext === 'png'
   ) {
     return <IMG img={resource} link={Link} />;
