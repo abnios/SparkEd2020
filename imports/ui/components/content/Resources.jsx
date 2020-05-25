@@ -51,6 +51,7 @@ export class Resourcesss extends Component {
     return (
       <Fragment>
         <div className="col s12">
+          <h5>Video</h5>
           {videos.map(vid => (
             <Resource
               key={vid._id}
@@ -60,8 +61,10 @@ export class Resourcesss extends Component {
               file={vid.type}
             />
           ))}
+          <hr></hr>
         </div>
         <div className="col s12">
+          <h5>Text Book</h5>
           {books.map(book => (
             <Resource
               key={book._id}
@@ -71,8 +74,11 @@ export class Resourcesss extends Component {
               file={book.type}
             />
           ))}
+          <hr></hr>
         </div>
+        
         <div className="col s12">
+        <h5>Images</h5>
           {images.map(image => (
             <Resource
               key={image._id}
@@ -82,8 +88,11 @@ export class Resourcesss extends Component {
               file={image.type}
             />
           ))}
+          <hr></hr>
         </div>
+        
         <div className="col s12">
+        <h5>Audios</h5>
           {audio.map(aud => (
             <Resource
               key={aud._id}
@@ -93,7 +102,9 @@ export class Resourcesss extends Component {
               file={aud.type}
             />
           ))}
+          <hr></hr>
         </div>
+        
       </Fragment>
     );
   }

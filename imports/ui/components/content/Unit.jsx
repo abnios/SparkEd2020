@@ -24,6 +24,14 @@ export class Unit extends Component {
     return courses.name;
   }
 
+  static navigateToUnit(_id, event){
+    event.preventDefault();
+    // FlowRouter.go(`/dashboard/units/${programId}?cs=${courseId}&y=${language}`);    
+    FlowRouter.go(`/contents/${_id}?ref=home`);    
+       
+                        
+  }
+
   render() {
     const {
       details: { courseId, language, programId },
@@ -45,7 +53,7 @@ export class Unit extends Component {
                 backgroundColor: state.isDark ? state.mainDark : state.main,
               }}
             >
-              <div className="card-content">
+              <div className="card-content" onClick={Unit.navigateToUnit.bind(this, _id)}>
                 {/* if the screen size is smaller then redirect to small view components */}
                 <span className={'card-title '}>
                   <h5>
@@ -56,7 +64,7 @@ export class Unit extends Component {
                 </span>
 
                 {!checkPermissions() ? (
-                  <span>
+                  <span >
                     <span className="">
                       <h6>
                         <a href="" id="cardListTitle">
@@ -68,7 +76,7 @@ export class Unit extends Component {
                     <span className="">
                       <a href="" id="cardListTitle">
                         {' '}
-                        &#8667; # of Topics : {this.countTopics()}{' '}
+                        &#8667; # of Units : {this.countTopics()}{' '}
                       </a>
                     </span>
                   </span>
@@ -92,7 +100,7 @@ export class Unit extends Component {
                         id="cardListTitle"
                       >
                         {' '}
-                        &#8667; # of Topics : {this.countTopics()}{' '}
+                        &#8667; # of Units : {this.countTopics()}{' '}
                       </a>
                     </span>
                   </span>

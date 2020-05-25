@@ -98,15 +98,18 @@ Meteor.methods({
         },
       },
       { upsert: true },
+      
     );
   },
   // eslint-disable-next-line
-  updateSettings(id, name, tag, server, isConfigured) {
+  updateSettings(id, name, tag, server, isConfigured, isReference) {
+    
     check(id, String);
     check(name, String);
     check(tag, String);
     check(server, String);
     check(isConfigured, Boolean);
+    check(isReference, Boolean);
     _Settings.update(
       { _id: id },
       {
@@ -115,9 +118,11 @@ Meteor.methods({
           tag,
           server,
           isConfigured,
+          isReference,
         },
       },
     );
+    
   },
   // prevent Updating when user is not logged in
   setDarkMode(isSet) {

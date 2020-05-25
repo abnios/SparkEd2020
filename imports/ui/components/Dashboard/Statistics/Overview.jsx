@@ -28,6 +28,8 @@ export class OverView extends Component {
         >
           <td>{count++}</td>
           <td>{user.profile.name}</td>
+          <td>{user.profile.phone}</td>
+          <td>{user.profile.grade}</td>
           <td>{email}</td>
           <td>{user.profile.gender}</td>
         </tr>
@@ -50,6 +52,8 @@ export class OverView extends Component {
                 <tr>
                   <th>#</th>
                   <th>Full Name</th>
+                  <th>Mobile Phone</th>
+                  <th>User is:</th>
                   <th>Email</th>
                   <th>Gender</th>
                 </tr>

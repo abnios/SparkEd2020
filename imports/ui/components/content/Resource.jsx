@@ -46,6 +46,7 @@ export default class Resource extends Component {
                   `/view_resource/${topicId}?rs=${resourceId}&scid=${FlowRouter.getParam('_id')}`,
                 )}
               >
+                
                 <span className={`resource-item fa ${fileType}`} />
                 <span style={{ color: color.isDark ? '#fff' : '#000' }}>
                   {resource.replace(/\.[^/.]+$/, '')}

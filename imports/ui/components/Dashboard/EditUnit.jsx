@@ -56,7 +56,7 @@ export class EditUnits extends Component {
   toggleEditModal = (ide, id = '', name = '') => {
     if (!Roles.userIsInRole(Meteor.userId(), ['admin', 'content-manager'])) {
       M.toast({
-        html: '<span>Only Admins and Content-Manager can edit Topics</span>',
+        html: '<span>Only Admins and Content-Manager can edit Units</span>',
         classes: 'red',
       });
       return;
@@ -67,7 +67,7 @@ export class EditUnits extends Component {
         this.setState({
           modalIdentifier: id,
           modalType: ide,
-          title: 'Edit The Topic',
+          title: 'Edit The Unit',
           name: this.name,
           confirm: 'Save',
           reject: 'Close',
@@ -78,7 +78,7 @@ export class EditUnits extends Component {
         this.setState({
           modalIdentifier: id,
           modalType: ide,
-          title: 'Add New Topic',
+          title: 'Add New Unit',
           confirm: 'Save',
           reject: 'Close',
         });
@@ -87,10 +87,10 @@ export class EditUnits extends Component {
       case 'del':
         const topics = getCheckBoxValues('chk');
         const count = topics.length;
-        const name = count > 1 ? 'topics' : 'topic';
+        const name = count > 1 ? 'units' : 'unit';
         if (count < 1) {
           M.toast({
-            html: '<span>Please check at least one topic</span>',
+            html: `please check at least one ${<T>common.manage.topics</T>} `,
             classes: 'red',
           });
           return;
@@ -262,7 +262,7 @@ export class EditUnits extends Component {
                         classes: 'red',
                       })
                       : M.toast({
-                        html: `<span>${count} topics successfully deleted</span>`,
+                        html: `<span>${<T>common.manage.topics</T>} successfully deleted</span>`,
                       });
                   });
               });
@@ -346,7 +346,7 @@ export class EditUnits extends Component {
                   ) : (
                     <div className="input-field">
                       <input
-                        placeholder="Name of Topic"
+                        placeholder="Name of Unit"
                         type="text"
                         defaultValue={this.state.name}
                         className="validate clear"
@@ -429,12 +429,12 @@ export class EditUnits extends Component {
                     <thead>
                       <tr>
                         <th>#</th>
-                        <th>{`${Session.get('sub_unit_title') || 'Topics'}`}</th>
+                        <th>{`${Session.get('sub_unit_title') || 'Units'}`}</th>
                         <th>
                           {' '}
                           <T>common.actions.createdAt</T>
                         </th>
-                        <th>Edit Topics</th>
+                        <th>Edit Units</th>
                         <th>
                           {' '}
                           <T>common.manage.resources</T>

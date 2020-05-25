@@ -47,6 +47,7 @@ export class Courses extends Component {
   componentDidMount() {
     M.AutoInit();
     Session.set('course', ' active');
+    
     window.scrollTo(0, 0);
   }
   componentWillUnmount() {
@@ -105,7 +106,7 @@ export class Courses extends Component {
       case 'del':
         const course = getCheckBoxValues('chk');
         const count = course.length;
-        const name = count > 1 ? 'courses' : 'course';
+        const name = count > 1 ? 'Grades' : 'Grade';
         if (count < 1) {
           M.toast({
             html: '<span>Please check atleast one course</span>',
@@ -321,58 +322,122 @@ export class Courses extends Component {
 
   renderCourses() {
     let count = 1;
-    const { courses } = this.props;
-    if (!courses) {
-      return '';
-    }
-    return courses.map(course => (
-      <tr key={course._id} className="link-section">
-        <td>{count++}</td>
-        <td
-          onClick={Courses.handleUrl.bind(
-            this,
-            course._id,
-            course.details.language,
-          )}
-        >
-          {course.name}
-        </td>
-        <td>{course.createdAt.toDateString()}</td>
-        <td>
-          <a
-            href=""
-            className="fa fa-pencil"
-            onClick={e =>
-              this.toggleEditModal(
-                'edit',
-                course.details.language,
-                course._id,
-                course.name,
-                course.code,
-                course.createdBy,
-                e,
-              )
-            }
-          />
-        </td>
-        <td>
-          <a
-            href={`/dashboard/units/${course._id}&y=${course.details.language}`}
-            className="fa fa-pencil"
-          />
-        </td>
-        <td onClick={handleCheckboxChange.bind(this, course._id)}>
-          <label htmlFor={course._id}>
-            <input
-              type="checkbox"
-              id={course._id}
-              className={`chk chk${course._id}`}
+  
+    
+    if (!Session.get('language') == ''){
+
+      const { courses } = this.props;
+      if (!courses) {
+        return '';
+      }
+
+      return courses.map(course => (
+        <tr key={course._id} className="link-section">
+          <td>{count++}</td>
+          <td
+            onClick={Courses.handleUrl.bind(
+              this,
+              course._id,
+              course.details.language,
+            )}
+          >
+            {course.name}
+          </td>
+          <td>{course.createdAt.toDateString()}</td>
+          <td>
+            <a
+              href=""
+              className="fa fa-pencil"
+              onClick={e =>
+                this.toggleEditModal(
+                  'edit',
+                  course.details.language,
+                  course._id,
+                  course.name,
+                  course.code,
+                  course.createdBy,
+                  e,
+                )
+              }
             />
-            <span />
-          </label>
-        </td>
-      </tr>
-    ));
+          </td>
+          <td>
+            <a
+              href={`/dashboard/units/${course._id}&y=${course.details.language}`}
+              className="fa fa-pencil"
+            />
+          </td>
+          <td onClick={handleCheckboxChange.bind(this, course._id)}>
+            <label htmlFor={course._id}>
+              <input
+                type="checkbox"
+                id={course._id}
+                className={`chk chk${course._id}`}
+              />
+              <span />
+            </label>
+          </td>
+        </tr>
+      ));
+    }
+    else{
+
+      const { allCourses } = this.props;
+      if (!allCourses) {
+        return '';
+      }
+
+      return allCourses.map(course => (
+        <tr key={course._id} className="link-section">
+          <td>{count++}</td>
+          <td
+            onClick={Courses.handleUrl.bind(
+              this,
+              course._id,
+              course.details.language,
+            )}
+          >
+            {course.name}
+          </td>
+          <td>{course.createdAt.toDateString()}</td>
+          <td>
+            <a
+              href=""
+              className="fa fa-pencil"
+              onClick={e =>
+                this.toggleEditModal(
+                  'edit',
+                  course.details.language,
+                  course._id,
+                  course.name,
+                  course.code,
+                  course.createdBy,
+                  e,
+                )
+              }
+            />
+          </td>
+          <td>
+            <a
+              href={`/dashboard/units/${course._id}&y=${course.details.language}`}
+              className="fa fa-pencil"
+            />
+          </td>
+          <td onClick={handleCheckboxChange.bind(this, course._id)}>
+            <label htmlFor={course._id}>
+              <input
+                type="checkbox"
+                id={course._id}
+                className={`chk chk${course._id}`}
+              />
+              <span />
+            </label>
+          </td>
+        </tr>
+      ));
+    }
+
+    
   }
 
   render() {
@@ -478,11 +543,15 @@ export class Courses extends Component {
                       }
                     >
                       <option value="" disabled defaultValue>
-                        Choose your option
+                        Choose your Language option
                       </option>
-                      <option value="french">French</option>
+                      <option value="">Select one  </option>
                       <option value="english">English </option>
-                      <option value="ethiopian">Ethiopian </option>
+                      <option value="amharic">Amharic </option>
+                      <option value="french">Oromifa</option>
+                      
+                      
+                      
                     </select>
                   </div>
                 </div>
@@ -524,20 +593,43 @@ export class Courses extends Component {
                     </button>
                   </a>
                 </div>
-                <div className="col m5">
+                <div className="col m8">
                   {/* <div className="row"> */}
                   <div className="col s12">
                     <ul className="tabs">
                       <li className="tab col s3">
                         <a
                           className="teal-text"
-                          href="#test1"
+                          href="#test"
+                          onClick={() => Session.set('language', '')}
+                        >
+                          {' '}
+                          All
+                        </a>
+                      </li>
+
+                      <li className="tab col s3">
+                        <a
+                          className="teal-text"
+                          href="#test19"
                           onClick={() => Session.set('language', 'english')}
                         >
                           {' '}
                           English
                         </a>
                       </li>
+                      
+                      <li className="tab col s3">
+                        <a
+                          className="teal-text"
+                          href="#test4"
+                          onClick={() => Session.set('language', 'amharic')}
+                        >
+                          {' '}
+                          አማርኛ | Amharic
+                        </a>
+                      </li>
+                     
                       <li className="tab col s3">
                         <a
                           className="teal-text"
@@ -545,19 +637,10 @@ export class Courses extends Component {
                           onClick={() => Session.set('language', 'french')}
                         >
                           {' '}
-                          French
+                          Afan Oromo
                         </a>
                       </li>
-                      <li className="tab col s3">
-                        <a
-                          className="teal-text"
-                          href="#test4"
-                          onClick={() => Session.set('language', 'ethiopian')}
-                        >
-                          {' '}
-                          Ethiopia
-                        </a>
-                      </li>
+                      
                     </ul>
                   </div>
                   {/* </div> */}
@@ -610,16 +693,24 @@ export class Courses extends Component {
 Courses.propTypes = {
   courses: PropTypes.array.isRequired,
   titles: PropTypes.object,
+  allCourses: PropTypes.array.isRequired,
 };
+
+
 
 export default withTracker(() => {
   Meteor.subscribe('searchdata');
   Meteor.subscribe('deleted');
   Meteor.subscribe('titles');
   Meteor.subscribe('courses');
+  
+ 
   return {
     courses: _Courses
-      .find({ 'details.language': Session.get('language') })
+      .find({ 'details.language': Session.get('language') } , {sort:{name:1}})
+      .fetch(),
+      allCourses: _Courses
+      .find({ },  {sort:{name:1}})
       .fetch(),
     titles: Titles.findOne({}),
   };

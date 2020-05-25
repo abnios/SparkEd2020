@@ -53,6 +53,8 @@ export default class ViewResource extends Component {
           resource._id
         }`}
       >
+        
+        
         <a
           target={'_top'}
           href={''}
@@ -61,7 +63,7 @@ export default class ViewResource extends Component {
           className={`customAtag ${ViewResource.changeTextColor(resource._id)}`}
         >
           <span className={'resourceName truncate'}>
-            {resource.name.replace(/\.[^/.]+$/, '')}
+          *  {resource.name.replace(/\.[^/.]+$/, '')}
           </span>
         </a>
       </li>

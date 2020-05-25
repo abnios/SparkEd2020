@@ -3,8 +3,8 @@
   "_namespace": "common",
   "language": {
     "enUS": "English - U.S.",
-    "esES": "Spanish - SP",
-    "frFr": "French - FR",
+    "esES": " Amharic ",
+    "frFr": " Oromifa",
     "Language": "Language"
   },
   "header": {
@@ -23,7 +23,7 @@
   },
   "accounts": {
     "userName": "User name",
-    "Subjects": "Subjects",
+    "Subjects": "Grades",
     "Register": "Register",
     "Login": "LogIn",
     "Logout": "Logout",
@@ -31,6 +31,8 @@
     "EmailField": "Email Address",
     "name": "name",
     "Role": "Role",
+    "Phone": "Mobile",
+    "Useris": "User is:",
     "Email": "Email",
     "Gender": "Gender",
     "dashboard": "Dashboard",

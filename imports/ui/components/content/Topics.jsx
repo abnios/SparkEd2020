@@ -100,7 +100,7 @@ export class Topics extends Component {
         id={topic._id}
         className={'link topic cardListItem'}
       >
-        <div id="selectedTopic"> {topic.name}</div>
+        <div id="selectedTopic"> {topic.name}<hr></hr></div>
       </li>
     ));
   }

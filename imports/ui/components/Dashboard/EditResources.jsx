@@ -354,8 +354,8 @@ export class EditResources extends Component {
                   >
                     {' '}
                     {config.isHighSchool
-                      ? Session.get('sub_unit_title') || ' Units'
-                      : ' Topics'}
+                      ? Session.get('sub_title') || ' Subjects'
+                      : ' Units'}
                   </button>
                 </div>
                 <div className="col s4 m3">

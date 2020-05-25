@@ -106,13 +106,13 @@ export class AllTopics extends Component {
                 }}
               >
                 <h4>
-                  List of <T>common.manage.topics</T>
+                  List of <T>common.manage.topics</T>s
                 </h4>
                 <div className="col m8 offset-m2">
                   <SearchField
                     action={'/dashboard/list_topics'}
                     name={'topics'}
-                    placeholder={'search for topics'}
+                    placeholder={'search for units'}
                     query={'q'}
                   />
                 </div>

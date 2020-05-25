@@ -19,6 +19,7 @@ export default class SetUp extends Component {
     structure: '',
     error: '',
     server: '',
+    reference: false
   };
 
   componentDidMount() {
@@ -65,13 +66,19 @@ export default class SetUp extends Component {
           server: address,
         });
         break;
+      case 'reference':
+        const isReference = value === 'true';
+        this.setState({
+          reference: isReference,
+        });
+          break;
       default:
     }
   };
 
   saveConfig = e => {
     e.preventDefault();
-    const { name, tag, structure, auth, server } = this.state;
+    const { name, tag, structure, auth, server, reference } = this.state;
     let isHighSchool;
     const isSet = config.isConfigured;
     switch (structure) {
@@ -112,13 +119,16 @@ export default class SetUp extends Component {
       auth,
       isHighSchool,
       server,
+      reference
     });
-    Meteor.call('addConfig', name, tag, auth, isHighSchool, server, err => {
+    Meteor.call('addConfig', name, tag, auth, true, server, reference , err => {
+      console.log(name+tag+server+auth+reference)
       err
         ? M.toast({ html: `<span>${err.reason}</span>` })
         : M.toast({
           html: '<span>Successfully saved the configurations</span>',
         });
+        
     });
     const settings = _Settings.findOne();
 
@@ -129,9 +139,12 @@ export default class SetUp extends Component {
       tag,
       server,
       true,
+      reference,
       err => {
+        // console.log(name+tag+server+reference)
         err ? console.log(err.reason) : console.log('yep it is done'); // eslint-disable-line
       },
+      
     );
 
     // open the upload modal
@@ -194,6 +207,45 @@ export default class SetUp extends Component {
                     </label>
                   </div>
                 </div>
+              Show Reference Menu <span>(Defaults to False)</span>
+                <div className="row">
+                  <div
+                    className="col s6"
+                    onChange={e => this.saveChange(e, 'reference')}
+                  >
+                    <p className="gender-male">
+                      <label>
+                        <input
+                          name="reference"
+                          type="radio"
+                          id="reference"
+                          style={{
+                            color: state.isDark ? '#F5FAF8' : '#000000',
+                          }}
+                          value={true}
+                          
+                        />
+                        <span>Show On Menu</span>
+                      </label>
+                    </p>
+                    <p className="gender-female">
+                      <label>
+                        <input
+                          name="reference"
+                          type="radio"
+                          id="not-reference"
+                          style={{
+                            color: state.isDark ? '#F5FAF8' : '#000000',
+                          }}
+                          value={false}
+                          
+                        />
+                        <span> Hide Reference menu</span>
+                      </label>
+                    </p>
+                  </div>
+                </div>
+                
                 Authentication <span>(Defaults to False)</span>
                 <div className="row">
                   <div

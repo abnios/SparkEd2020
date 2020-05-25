@@ -30,7 +30,7 @@ export default class Languages extends Component {
       case 'es':
         i18n.setLocale('es-Es');
         localStorage.setItem('locale', 'es-ES');
-        Session.set('language', 'ethiopian');
+        Session.set('language', 'amharic');
         break;
       default:
         break;
@@ -43,15 +43,16 @@ export default class Languages extends Component {
         <a href="" onClick={e => this.changeLangauge(e, 'en')}>
           <T>common.language.enUS</T>
         </a>
-        {' |'}
-        <a href="" onClick={e => this.changeLangauge(e, 'fr')}>
-          {' '}
-          <T>common.language.frFr</T>
-        </a>
-        |
+        {' | '}
         <a href="" onClick={e => this.changeLangauge(e, 'es')}>
           {' '}
           <T>common.language.esES</T>
+        </a>
+        |
+        
+        <a href="" onClick={e => this.changeLangauge(e, 'fr')}>
+          {' '}
+          <T>common.language.frFr</T>
         </a>
       </div>
     );
